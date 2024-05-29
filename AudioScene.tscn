@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://bhd27uxlxeevl"]
+
+[ext_resource type="Script" path="res://AudioScene.gd" id="1_ds6ms"]
+[ext_resource type="Texture2D" uid="uid://dph1j4x8d3btg" path="res://Assets/defaultBG.png" id="2_k06jy"]
+[ext_resource type="FontFile" uid="uid://d4kj5gy3i1div" path="res://jabjai_heavy.TTF" id="3_31br1"]
+[ext_resource type="Texture2D" uid="uid://cdn01jp3v0jjl" path="res://Assets/ConfirmButton.png" id="3_ctc4c"]
+[ext_resource type="Texture2D" uid="uid://trd0vfhufn66" path="res://Assets/MatigasNaKahoy.png" id="4_28x8m"]
+[ext_resource type="PackedScene" uid="uid://bsi3ur7xehvdn" path="res://GameDataaa/correct_layer.tscn" id="4_mnf4v"]
+[ext_resource type="PackedScene" uid="uid://dnbc2oo55mja7" path="res://wrong_layer.tscn" id="5_yrwqv"]
+[ext_resource type="Texture2D" uid="uid://boq8xr28uars" path="res://Assets/SoundButton.png" id="6_8pht0"]
+[ext_resource type="Texture2D" uid="uid://cnhtahdj3feu2" path="res://Assets/ReturnButton.png" id="7_ukkpp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oym8o"]
+texture = ExtResource("4_28x8m")
+region_rect = Rect2(-3.32349, 571.997, 1754.45, 402.535)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ds6ms")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(324, 577)
+scale = Vector2(0.52, 0.66)
+texture = ExtResource("2_k06jy")
+
+[node name="UserInput" type="LineEdit" parent="."]
+unique_name_in_owner = true
+offset_left = 57.0
+offset_top = 603.0
+offset_right = 581.0
+offset_bottom = 717.0
+theme_override_fonts/font = ExtResource("3_31br1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_oym8o")
+alignment = 1
+
+[node name="VerifyButton" type="TextureButton" parent="."]
+offset_left = 136.0
+offset_top = 726.0
+offset_right = 491.0
+offset_bottom = 1066.0
+texture_normal = ExtResource("3_ctc4c")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="CorrectLayer" parent="VerifyButton" instance=ExtResource("4_mnf4v")]
+
+[node name="WrongLayer" parent="VerifyButton" instance=ExtResource("5_yrwqv")]
+
+[node name="SoundPrompt" type="TextureButton" parent="."]
+offset_left = 89.0
+offset_top = 180.0
+offset_right = 553.0
+offset_bottom = 575.0
+texture_normal = ExtResource("6_8pht0")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundPrompt"]
+bus = &"AudioCues"
+
+[node name="QuitCurrent" type="TextureButton" parent="."]
+offset_left = 519.0
+offset_right = 649.0
+offset_bottom = 124.0
+texture_normal = ExtResource("7_ukkpp")
+ignore_texture_size = true
+stretch_mode = 6
+
+[connection signal="pressed" from="VerifyButton" to="." method="_on_verify_button_pressed"]
+[connection signal="pressed" from="SoundPrompt" to="." method="_on_sound_prompt_pressed"]
+[connection signal="pressed" from="QuitCurrent" to="." method="_on_quit_current_pressed"]

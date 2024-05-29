@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="SimSpell"
+run/main_scene="res://MainScene.tscn"
+config/features=PackedStringArray("4.1", "Mobile")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://Assets/MicrosoftTeams-image.png"
+config/icon="res://Assets/SimSpellIcon.png"
+boot_splash/minimum_display_time=2000
+
+[autoload]
+
+Global="*res://Global.gd"
+BgMoosic="*res://bg_moosic.tscn"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/size/mode=1
+window/size/resizable=false
+window/size/window_width_override=324
+window/size/window_height_override=576
+window/stretch/mode="viewport"
+window/handheld/orientation=1
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

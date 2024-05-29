@@ -1,0 +1,974 @@
+[gd_scene load_steps=46 format=3 uid="uid://cspkytw6qpdgv"]
+
+[ext_resource type="Script" path="res://shop_layer.gd" id="1_d2c7t"]
+[ext_resource type="Texture2D" uid="uid://cg136pga5ihu6" path="res://Assets/coin1.png" id="2_fsuql"]
+[ext_resource type="Texture2D" uid="uid://bgsq7tu132kaf" path="res://Assets/coin2.png" id="3_3fae4"]
+[ext_resource type="Texture2D" uid="uid://dsyquptnjy4a5" path="res://Assets/coin3.png" id="4_dmrj3"]
+[ext_resource type="Texture2D" uid="uid://bu3yb7djt5cvf" path="res://Assets/coin4.png" id="5_wcx4y"]
+[ext_resource type="Texture2D" uid="uid://b5jgom6r6wqab" path="res://Assets/coin5.png" id="6_6whb6"]
+[ext_resource type="Texture2D" uid="uid://c0jq2i4sobmrr" path="res://Assets/coin6.png" id="7_h0l6d"]
+[ext_resource type="Texture2D" uid="uid://bwv2di1l7xot3" path="res://Assets/coin7.png" id="8_ka7wu"]
+[ext_resource type="Script" path="res://Characters.gd" id="9_x5xa4"]
+[ext_resource type="Texture2D" uid="uid://dq5dkowe3b5ry" path="res://Assets/PanelBG.png" id="10_8ewg6"]
+[ext_resource type="Texture2D" uid="uid://tn3tjw4gtl7x" path="res://Assets/BullIcon.png" id="10_oaf7h"]
+[ext_resource type="Texture2D" uid="uid://cenh5in2wljli" path="res://Assets/TigerIcon.png" id="12_c8oey"]
+[ext_resource type="Texture2D" uid="uid://d2bij6gu2t604" path="res://Assets/PandaIcon.png" id="13_ekhqa"]
+[ext_resource type="Texture2D" uid="uid://hcj1pbjnh27l" path="res://Assets/BarnyardFit.png" id="14_0jqdq"]
+[ext_resource type="Texture2D" uid="uid://trd0vfhufn66" path="res://Assets/MatigasNaKahoy.png" id="14_8vc2l"]
+[ext_resource type="Texture2D" uid="uid://7qlxh0wt65kq" path="res://Assets/AxolotlIcon.png" id="14_avm3h"]
+[ext_resource type="AudioStream" uid="uid://bej3f4v88n8p5" path="res://AudioAssets/BuySound.mp3" id="15_bqteq"]
+[ext_resource type="Texture2D" uid="uid://cq5e23h5n4qsl" path="res://Assets/BeardedDragonIcon.png" id="15_vxr4g"]
+[ext_resource type="Texture2D" uid="uid://bihm222kl3oey" path="res://Assets/CowboyHat.png" id="15_yb37r"]
+[ext_resource type="Texture2D" uid="uid://cyxnlbagg27f5" path="res://Assets/OrientalHairClip.png" id="16_hqxn1"]
+[ext_resource type="Texture2D" uid="uid://c50nqf7p7i830" path="res://Assets/Woods.png" id="16_tnavh"]
+[ext_resource type="Texture2D" uid="uid://b6ikyxtox3t6" path="res://Assets/BambooForest.png" id="17_won8h"]
+[ext_resource type="Texture2D" uid="uid://b00b2jigfyky7" path="res://Assets/OrientalDress.png" id="17_xemew"]
+[ext_resource type="Texture2D" uid="uid://diph2q2vnlqns" path="res://Assets/SpaceBeret.png" id="18_ewlnk"]
+[ext_resource type="Texture2D" uid="uid://c2gsa1nbhfkm3" path="res://Assets/SpaceBlouse.png" id="19_habfd"]
+[ext_resource type="Texture2D" uid="uid://j1kmv3u33sq6" path="res://Assets/MoonStation.png" id="23_80hx8"]
+[ext_resource type="Texture2D" uid="uid://by41ol45ddul8" path="res://Assets/Snorkel.png" id="23_oldoq"]
+[ext_resource type="Texture2D" uid="uid://b8k1e4cskh1lv" path="res://Assets/LifeVest.png" id="24_eun4x"]
+[ext_resource type="FontFile" uid="uid://d4kj5gy3i1div" path="res://jabjai_heavy.TTF" id="24_ss3ps"]
+[ext_resource type="Texture2D" uid="uid://dw55165n2hrbm" path="res://Assets/Fedora.png" id="25_3g7ew"]
+[ext_resource type="Texture2D" uid="uid://bumct2ox0vo28" path="res://Assets/Tuxedo.png" id="26_8x6x5"]
+[ext_resource type="Texture2D" uid="uid://btn6mgwlrwgpx" path="res://Assets/BeachSide.png" id="30_4pm7n"]
+[ext_resource type="Texture2D" uid="uid://c7alxn5aaibhd" path="res://Assets/RedCarpet.png" id="31_eistd"]
+
+[sub_resource type="Animation" id="Animation_6l206"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1152)]
+}
+
+[sub_resource type="Animation" id="Animation_uhdl7"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1152), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ghpw"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1153)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0dvl"]
+_data = {
+"RESET": SubResource("Animation_6l206"),
+"transIn": SubResource("Animation_uhdl7"),
+"transOut": SubResource("Animation_5ghpw")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b62gv"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fsuql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3fae4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dmrj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wcx4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6whb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h0l6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ka7wu")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v134y"]
+texture = ExtResource("10_8ewg6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yis6h"]
+texture = ExtResource("14_8vc2l")
+texture_margin_left = 100.0
+region_rect = Rect2(589.087, 750.48, 341.775, 64.5575)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tvfv5"]
+texture = ExtResource("10_8ewg6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnb82"]
+texture = ExtResource("10_8ewg6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urhhj"]
+texture = ExtResource("14_8vc2l")
+texture_margin_left = 100.0
+region_rect = Rect2(459.972, 666.935, 649.373, 182.28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oaerh"]
+texture = ExtResource("10_8ewg6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s2tgl"]
+texture = ExtResource("14_8vc2l")
+texture_margin_left = 100.0
+region_rect = Rect2(403.009, 659.34, 592.41, 193.672)
+
+[node name="ShopLayer" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -1152)
+transform = Transform2D(1, 0, 0, 1, 0, -1152)
+script = ExtResource("1_d2c7t")
+
+[node name="ShopAnim" type="AnimationPlayer" parent="."]
+speed_scale = 5.0
+libraries = {
+"": SubResource("AnimationLibrary_v0dvl")
+}
+
+[node name="PanelShop" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 85.0
+offset_right = 622.0
+offset_bottom = 861.0
+
+[node name="CloseShop" type="Button" parent="."]
+offset_left = 484.0
+offset_top = 101.0
+offset_right = 608.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 30
+text = "Close"
+icon_alignment = 1
+
+[node name="Coinz" type="Label" parent="."]
+offset_left = 129.0
+offset_top = 103.0
+offset_right = 209.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 30
+
+[node name="CoinAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(81, 129)
+scale = Vector2(0.0588311, 0.0525461)
+sprite_frames = SubResource("SpriteFrames_b62gv")
+animation = &"new_animation"
+frame_progress = 0.703494
+
+[node name="TabContainer" type="TabContainer" parent="."]
+offset_left = 43.0
+offset_top = 253.0
+offset_right = 615.0
+offset_bottom = 848.0
+theme_override_font_sizes/font_size = 28
+
+[node name="Characters" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+script = ExtResource("9_x5xa4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Characters"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -31.0
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="ControlNod" type="Node2D" parent="TabContainer/Characters/RichTextLabel"]
+
+[node name="PanelBull" type="Panel" parent="TabContainer/Characters/RichTextLabel/ControlNod"]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 505.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v134y")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelBull"]
+position = Vector2(236, 265)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_oaf7h")
+
+[node name="BuyItm1" type="Button" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelBull"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelBull"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 17.0
+offset_right = 281.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelTiger" type="Panel" parent="TabContainer/Characters/RichTextLabel/ControlNod"]
+offset_left = 547.0
+offset_top = 24.0
+offset_right = 1024.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v134y")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelTiger"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("12_c8oey")
+
+[node name="BuyItm5" type="Button" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelTiger"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelTiger"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 25.0
+offset_right = 283.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelPanda" type="Panel" parent="TabContainer/Characters/RichTextLabel/ControlNod"]
+offset_left = 1066.0
+offset_top = 23.0
+offset_right = 1543.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v134y")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelPanda"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("13_ekhqa")
+
+[node name="BuyItm6" type="Button" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelPanda"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelPanda"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 275.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelAxolotl" type="Panel" parent="TabContainer/Characters/RichTextLabel/ControlNod"]
+offset_left = 1581.0
+offset_top = 23.0
+offset_right = 2058.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v134y")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelAxolotl"]
+position = Vector2(239, 268)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_avm3h")
+
+[node name="BuyItm13" type="Button" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelAxolotl"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelAxolotl"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 275.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelBeardedDragon" type="Panel" parent="TabContainer/Characters/RichTextLabel/ControlNod"]
+offset_left = 2094.0
+offset_top = 23.0
+offset_right = 2571.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v134y")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelBeardedDragon"]
+position = Vector2(239, 276)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("15_vxr4g")
+
+[node name="BuyItm14" type="Button" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelBeardedDragon"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Characters/RichTextLabel/ControlNod/PanelBeardedDragon"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 275.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="HScrollBar" type="HScrollBar" parent="TabContainer/Characters"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/grabber = SubResource("StyleBoxTexture_yis6h")
+max_value = 2000.0
+step = 100.0
+
+[node name="Accessories" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("9_x5xa4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Accessories"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="ControlNod" type="Node2D" parent="TabContainer/Accessories/RichTextLabel"]
+
+[node name="PanelShirt" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 545.0
+offset_top = 24.0
+offset_right = 1022.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_tvfv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelShirt"]
+position = Vector2(237, 217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_0jqdq")
+
+[node name="BuyItm3" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelShirt"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelShirt"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 30.0
+offset_right = 248.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 60"
+
+[node name="PanelHat" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 505.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelHat"]
+position = Vector2(239, 243)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_yb37r")
+
+[node name="BuyItm2" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelHat"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelHat"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 29.0
+offset_right = 243.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 20"
+
+[node name="PanelOrientalHairClip" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 1068.0
+offset_top = 24.0
+offset_right = 1545.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalHairClip"]
+position = Vector2(239, 194)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("16_hqxn1")
+
+[node name="BuyItm7" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalHairClip"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalHairClip"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 246.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 20"
+
+[node name="PanelOrientalDress" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 1589.0
+offset_top = 24.0
+offset_right = 2066.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalDress"]
+position = Vector2(237, 217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("17_xemew")
+
+[node name="BuyItm8" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalDress"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalDress"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0880503
+anchor_top = 0.0659341
+anchor_right = 0.436059
+anchor_bottom = 0.173626
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 60"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelSpaceBeret" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 2107.0
+offset_top = 24.0
+offset_right = 2584.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBeret"]
+position = Vector2(239, 194)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("18_ewlnk")
+
+[node name="BuyItm10" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBeret"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBeret"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 29.0
+offset_right = 247.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 20"
+
+[node name="PanelSpaceBlouse" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 2632.0
+offset_top = 22.0
+offset_right = 3109.0
+offset_bottom = 477.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBlouse"]
+position = Vector2(237, 217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_habfd")
+
+[node name="BuyItm11" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBlouse"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBlouse"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0943396
+anchor_top = 0.0747253
+anchor_right = 0.442348
+anchor_bottom = 0.182418
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 60"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelSnorkel" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 3139.0
+offset_top = 21.0
+offset_right = 3616.0
+offset_bottom = 476.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSnorkel"]
+position = Vector2(237, 217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_oldoq")
+
+[node name="BuyItm17" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSnorkel"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSnorkel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0943396
+anchor_top = 0.0747253
+anchor_right = 0.442348
+anchor_bottom = 0.182418
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 20"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelLifeVest" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 3653.0
+offset_top = 21.0
+offset_right = 4130.0
+offset_bottom = 476.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelLifeVest"]
+position = Vector2(237, 217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("24_eun4x")
+
+[node name="BuyItm18" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelLifeVest"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelLifeVest"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0943396
+anchor_top = 0.0747253
+anchor_right = 0.442348
+anchor_bottom = 0.182418
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 60"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelFedora" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 4156.0
+offset_top = 21.0
+offset_right = 4633.0
+offset_bottom = 476.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelFedora"]
+position = Vector2(237, 217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("25_3g7ew")
+
+[node name="BuyItm19" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelFedora"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelFedora"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0943396
+anchor_top = 0.0747253
+anchor_right = 0.442348
+anchor_bottom = 0.182418
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 20"
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelTuxedo" type="Panel" parent="TabContainer/Accessories/RichTextLabel/ControlNod"]
+offset_left = 4669.0
+offset_top = 20.0
+offset_right = 5146.0
+offset_bottom = 475.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_nnb82")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelTuxedo"]
+position = Vector2(237, 217)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("26_8x6x5")
+
+[node name="BuyItm20" type="Button" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelTuxedo"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="TabContainer/Accessories/RichTextLabel/ControlNod/PanelTuxedo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0943396
+anchor_top = 0.0747253
+anchor_right = 0.442348
+anchor_bottom = 0.182418
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 60"
+metadata/_edit_use_anchors_ = true
+
+[node name="HScrollBar" type="HScrollBar" parent="TabContainer/Accessories"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/grabber = SubResource("StyleBoxTexture_urhhj")
+max_value = 4900.0
+step = 100.0
+
+[node name="Backgrounds" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("9_x5xa4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Backgrounds"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -31.0
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="ControlNod" type="Node2D" parent="TabContainer/Backgrounds/RichTextLabel"]
+
+[node name="PanelWoods" type="Panel" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod"]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 505.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oaerh")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelWoods"]
+position = Vector2(232, 209)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("16_tnavh")
+
+[node name="BuyItm4" type="Button" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelWoods"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelWoods"]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 29.0
+offset_right = 272.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelBambooForest" type="Panel" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod"]
+offset_left = 551.0
+offset_top = 23.0
+offset_right = 1028.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oaerh")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBambooForest"]
+position = Vector2(232, 209)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("17_won8h")
+
+[node name="BuyItm9" type="Button" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBambooForest"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBambooForest"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 29.0
+offset_right = 274.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelMoonStation" type="Panel" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod"]
+offset_left = 1068.0
+offset_top = 23.0
+offset_right = 1545.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oaerh")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelMoonStation"]
+position = Vector2(232, 209)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("23_80hx8")
+
+[node name="BuyItm12" type="Button" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelMoonStation"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelMoonStation"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 29.0
+offset_right = 274.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelBeachSide" type="Panel" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod"]
+offset_left = 1583.0
+offset_top = 23.0
+offset_right = 2060.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oaerh")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBeachSide"]
+position = Vector2(232, 209)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("30_4pm7n")
+
+[node name="BuyItm15" type="Button" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBeachSide"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBeachSide"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 29.0
+offset_right = 274.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="PanelRedCarpet" type="Panel" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod"]
+offset_left = 2103.0
+offset_top = 23.0
+offset_right = 2580.0
+offset_bottom = 478.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_oaerh")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelRedCarpet"]
+position = Vector2(232, 209)
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("31_eistd")
+
+[node name="BuyItm16" type="Button" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelRedCarpet"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Buy"
+
+[node name="Label" type="Label" parent="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelRedCarpet"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 29.0
+offset_right = 274.0
+offset_bottom = 101.0
+theme_override_font_sizes/font_size = 50
+text = "Price: 100"
+
+[node name="HScrollBar" type="HScrollBar" parent="TabContainer/Backgrounds"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/grabber = SubResource("StyleBoxTexture_s2tgl")
+max_value = 2000.0
+step = 100.0
+
+[node name="Popup" type="AcceptDialog" parent="."]
+title = "Alert! You Broke!"
+initial_position = 2
+size = Vector2i(500, 200)
+
+[node name="Label" type="Label" parent="Popup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -92.0
+offset_right = 304.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Sample Betlog"
+
+[node name="BuySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_bqteq")
+volume_db = 15.0
+
+[node name="PanelLabel" type="Label" parent="."]
+offset_left = 219.0
+offset_top = 89.0
+offset_right = 446.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("24_ss3ps")
+theme_override_font_sizes/font_size = 50
+text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="ShopAnim" to="." method="_on_shop_anim_animation_finished"]
+[connection signal="pressed" from="CloseShop" to="." method="_on_close_shop_pressed"]
+[connection signal="pressed" from="TabContainer/Characters/RichTextLabel/ControlNod/PanelBull/BuyItm1" to="." method="_on_buy_itm_1_pressed"]
+[connection signal="pressed" from="TabContainer/Characters/RichTextLabel/ControlNod/PanelTiger/BuyItm5" to="." method="_on_buy_itm_5_pressed"]
+[connection signal="pressed" from="TabContainer/Characters/RichTextLabel/ControlNod/PanelPanda/BuyItm6" to="." method="_on_buy_itm_6_pressed"]
+[connection signal="pressed" from="TabContainer/Characters/RichTextLabel/ControlNod/PanelAxolotl/BuyItm13" to="." method="_on_buy_itm_13_pressed"]
+[connection signal="pressed" from="TabContainer/Characters/RichTextLabel/ControlNod/PanelBeardedDragon/BuyItm14" to="." method="_on_buy_itm_14_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelShirt/BuyItm3" to="." method="_on_buy_itm_3_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelHat/BuyItm2" to="." method="_on_buy_itm_2_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalHairClip/BuyItm7" to="." method="_on_buy_itm_7_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelOrientalDress/BuyItm8" to="." method="_on_buy_itm_8_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBeret/BuyItm10" to="." method="_on_buy_itm_10_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSpaceBlouse/BuyItm11" to="." method="_on_buy_itm_11_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelSnorkel/BuyItm17" to="." method="_on_buy_itm_17_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelLifeVest/BuyItm18" to="." method="_on_buy_itm_18_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelFedora/BuyItm19" to="." method="_on_buy_itm_19_pressed"]
+[connection signal="pressed" from="TabContainer/Accessories/RichTextLabel/ControlNod/PanelTuxedo/BuyItm20" to="." method="_on_buy_itm_20_pressed"]
+[connection signal="pressed" from="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelWoods/BuyItm4" to="." method="_on_buy_itm_4_pressed"]
+[connection signal="pressed" from="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBambooForest/BuyItm9" to="." method="_on_buy_itm_9_pressed"]
+[connection signal="pressed" from="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelMoonStation/BuyItm12" to="." method="_on_buy_itm_12_pressed"]
+[connection signal="pressed" from="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelBeachSide/BuyItm15" to="." method="_on_buy_itm_15_pressed"]
+[connection signal="pressed" from="TabContainer/Backgrounds/RichTextLabel/ControlNod/PanelRedCarpet/BuyItm16" to="." method="_on_buy_itm_16_pressed"]

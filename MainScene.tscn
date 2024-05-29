@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://ckxu24mqqvmgt"]
+
+[ext_resource type="Script" path="res://MainScene.gd" id="1_oy0vl"]
+[ext_resource type="Texture2D" uid="uid://dph1j4x8d3btg" path="res://Assets/defaultBG.png" id="2_sp8th"]
+[ext_resource type="Texture2D" uid="uid://dragsu4ely138" path="res://Assets/logo (1).png" id="3_q3o10"]
+[ext_resource type="Texture2D" uid="uid://baxqwojehiu37" path="res://Assets/logo (2).png" id="4_n6egr"]
+[ext_resource type="Texture2D" uid="uid://c3cus8515ti8e" path="res://Assets/logo (3).png" id="5_eenul"]
+[ext_resource type="Texture2D" uid="uid://iaxu0mftwc8e" path="res://Assets/logo (4).png" id="6_hjktq"]
+
+[sub_resource type="Animation" id="Animation_d1yjq"]
+resource_name = "BlackLetter"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qnc80"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrqem"]
+_data = {
+"BlackLetter": SubResource("Animation_d1yjq"),
+"RESET": SubResource("Animation_qnc80")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ornf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_q3o10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n6egr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eenul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hjktq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_oy0vl")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(324, 577)
+scale = Vector2(0.52, 0.66)
+texture = ExtResource("2_sp8th")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 730.0
+offset_right = 552.0
+offset_bottom = 794.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Press screen to continue..."
+horizontal_alignment = 1
+
+[node name="LetterBlink" type="AnimationPlayer" parent="Label"]
+libraries = {
+"": SubResource("AnimationLibrary_nrqem")
+}
+
+[node name="SimSpellName" type="TextureRect" parent="."]
+offset_left = 110.0
+offset_top = 157.0
+offset_right = 545.0
+offset_bottom = 328.0
+
+[node name="Lowgow" type="AnimatedSprite2D" parent="."]
+position = Vector2(329, 400)
+scale = Vector2(0.28469, 0.311138)
+sprite_frames = SubResource("SpriteFrames_3ornf")
+frame_progress = 0.733782
+
+[node name="PlayButton" type="TextureButton" parent="."]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 651.0
+offset_bottom = 1151.0
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

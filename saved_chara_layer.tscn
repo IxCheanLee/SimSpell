@@ -1,0 +1,317 @@
+[gd_scene load_steps=17 format=3 uid="uid://be807g6ti1ahg"]
+
+[ext_resource type="AudioStream" uid="uid://d3tkcuj2a1cb5" path="res://AudioAssets/Equip.mp3" id="1_b7n07"]
+[ext_resource type="Script" path="res://saved_chara_layer.gd" id="1_p4pp8"]
+[ext_resource type="Texture2D" uid="uid://dq5dkowe3b5ry" path="res://Assets/PanelBG.png" id="2_pxhi7"]
+[ext_resource type="Texture2D" uid="uid://tn3tjw4gtl7x" path="res://Assets/BullIcon.png" id="3_ndl57"]
+[ext_resource type="Texture2D" uid="uid://b08dgyr7k4ijn" path="res://Assets/CatIcon.png" id="4_a0tml"]
+[ext_resource type="Texture2D" uid="uid://cenh5in2wljli" path="res://Assets/TigerIcon.png" id="4_oqr4o"]
+[ext_resource type="Texture2D" uid="uid://d2bij6gu2t604" path="res://Assets/PandaIcon.png" id="5_2ftfe"]
+[ext_resource type="Texture2D" uid="uid://7qlxh0wt65kq" path="res://Assets/AxolotlIcon.png" id="6_std3q"]
+[ext_resource type="Texture2D" uid="uid://cq5e23h5n4qsl" path="res://Assets/BeardedDragonIcon.png" id="7_orckt"]
+[ext_resource type="Texture2D" uid="uid://trd0vfhufn66" path="res://Assets/MatigasNaKahoy.png" id="8_xne8g"]
+
+[sub_resource type="Animation" id="Animation_6l206"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1152)]
+}
+
+[sub_resource type="Animation" id="Animation_uhdl7"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1152), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ghpw"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1153)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0dvl"]
+_data = {
+"RESET": SubResource("Animation_6l206"),
+"transIn": SubResource("Animation_uhdl7"),
+"transOut": SubResource("Animation_5ghpw")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_70f6f"]
+texture = ExtResource("2_pxhi7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmhlq"]
+texture = ExtResource("8_xne8g")
+texture_margin_left = 100.0
+region_rect = Rect2(509.339, 655.542, 478.485, 235.445)
+
+[node name="SavedCharaLayer" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -1152)
+transform = Transform2D(1, 0, 0, 1, 0, -1152)
+script = ExtResource("1_p4pp8")
+
+[node name="SVAnim" type="AnimationPlayer" parent="."]
+speed_scale = 5.0
+libraries = {
+"": SubResource("AnimationLibrary_v0dvl")
+}
+
+[node name="PanelSaved" type="Panel" parent="."]
+offset_left = 33.0
+offset_top = 85.0
+offset_right = 623.0
+offset_bottom = 857.0
+
+[node name="CloseSaved" type="Button" parent="."]
+offset_left = 484.0
+offset_top = 101.0
+offset_right = 608.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 30
+text = "Close"
+
+[node name="EquipSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_b7n07")
+volume_db = 15.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+offset_left = 64.0
+offset_top = 228.0
+offset_right = 601.0
+offset_bottom = 834.0
+theme_override_font_sizes/font_size = 28
+
+[node name="SavedCharacters" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/SavedCharacters"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -31.0
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="ControlNod" type="Node2D" parent="TabContainer/SavedCharacters/RichTextLabel"]
+
+[node name="Cat" type="Panel" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod"]
+offset_left = 28.0
+offset_top = 24.0
+offset_right = 505.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_70f6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Cat"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_a0tml")
+
+[node name="EquipItm1" type="Button" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Cat"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Equip"
+
+[node name="Label" type="Label" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Cat"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 112.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Bull" type="Panel" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod"]
+offset_left = 552.0
+offset_top = 25.0
+offset_right = 1029.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_70f6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Bull"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_ndl57")
+
+[node name="EquipItm2" type="Button" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Bull"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Equip"
+
+[node name="Label" type="Label" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Bull"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 163.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Tiger" type="Panel" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod"]
+offset_left = 1075.0
+offset_top = 25.0
+offset_right = 1552.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_70f6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Tiger"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_oqr4o")
+
+[node name="EquipItm3" type="Button" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Tiger"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Equip"
+
+[node name="Label" type="Label" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Tiger"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 194.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Panda" type="Panel" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod"]
+offset_left = 1586.0
+offset_top = 25.0
+offset_right = 2063.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_70f6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Panda"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_2ftfe")
+
+[node name="EquipItm4" type="Button" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Panda"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Equip"
+
+[node name="Label" type="Label" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Panda"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 194.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 50
+
+[node name="Axolotl" type="Panel" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod"]
+offset_left = 2092.0
+offset_top = 24.0
+offset_right = 2569.0
+offset_bottom = 479.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_70f6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Axolotl"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_std3q")
+
+[node name="EquipItm5" type="Button" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Axolotl"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Equip"
+
+[node name="Label" type="Label" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Axolotl"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 194.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 50
+
+[node name="BeardedDragon" type="Panel" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod"]
+offset_left = 2606.0
+offset_top = 25.0
+offset_right = 3083.0
+offset_bottom = 480.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_70f6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/BeardedDragon"]
+position = Vector2(239, 251)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_orckt")
+
+[node name="EquipItm6" type="Button" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/BeardedDragon"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 333.0
+offset_right = 346.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Equip"
+
+[node name="Label" type="Label" parent="TabContainer/SavedCharacters/RichTextLabel/ControlNod/BeardedDragon"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 194.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 50
+
+[node name="HScrollBar" type="HScrollBar" parent="TabContainer/SavedCharacters"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/grabber = SubResource("StyleBoxTexture_tmhlq")
+max_value = 4900.0
+step = 100.0
+
+[connection signal="pressed" from="CloseSaved" to="." method="_on_close_saved_pressed"]
+[connection signal="pressed" from="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Cat/EquipItm1" to="." method="_on_equip_itm_1_pressed"]
+[connection signal="pressed" from="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Bull/EquipItm2" to="." method="_on_equip_itm_2_pressed"]
+[connection signal="pressed" from="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Tiger/EquipItm3" to="." method="_on_equip_itm_3_pressed"]
+[connection signal="pressed" from="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Panda/EquipItm4" to="." method="_on_equip_itm_4_pressed"]
+[connection signal="pressed" from="TabContainer/SavedCharacters/RichTextLabel/ControlNod/Axolotl/EquipItm5" to="." method="_on_equip_itm_5_pressed"]
+[connection signal="pressed" from="TabContainer/SavedCharacters/RichTextLabel/ControlNod/BeardedDragon/EquipItm6" to="." method="_on_equip_itm_6_pressed"]

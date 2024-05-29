@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8codvau60s0u"]
+
+[ext_resource type="Script" path="res://BeginnerScene.gd" id="1_uq0j0"]
+[ext_resource type="Texture2D" uid="uid://dph1j4x8d3btg" path="res://Assets/defaultBG.png" id="2_4flts"]
+[ext_resource type="Texture2D" uid="uid://cdn01jp3v0jjl" path="res://Assets/ConfirmButton.png" id="3_mcylf"]
+[ext_resource type="FontFile" uid="uid://d4kj5gy3i1div" path="res://jabjai_heavy.TTF" id="3_tvee1"]
+[ext_resource type="PackedScene" uid="uid://dnbc2oo55mja7" path="res://wrong_layer.tscn" id="4_6k3qa"]
+[ext_resource type="PackedScene" uid="uid://bsi3ur7xehvdn" path="res://GameDataaa/correct_layer.tscn" id="5_mj4nt"]
+[ext_resource type="Texture2D" uid="uid://cnhtahdj3feu2" path="res://Assets/ReturnButton.png" id="6_fpipm"]
+[ext_resource type="Texture2D" uid="uid://trd0vfhufn66" path="res://Assets/MatigasNaKahoy.png" id="7_oo6u2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g1mqf"]
+texture = ExtResource("7_oo6u2")
+region_rect = Rect2(0.47403, 575.795, 1750.65, 394.94)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_guhlg"]
+texture = ExtResource("7_oo6u2")
+region_rect = Rect2(0.179993, 576.143, 1750.65, 383.547)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_uq0j0")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(324, 577)
+scale = Vector2(0.52, 0.66)
+texture = ExtResource("2_4flts")
+
+[node name="UserInput" type="LineEdit" parent="."]
+unique_name_in_owner = true
+offset_left = 57.0
+offset_top = 603.0
+offset_right = 581.0
+offset_bottom = 717.0
+theme_override_fonts/font = ExtResource("3_tvee1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_g1mqf")
+alignment = 1
+
+[node name="VerifyButton" type="TextureButton" parent="."]
+offset_left = 140.0
+offset_top = 747.0
+offset_right = 494.0
+offset_bottom = 1044.0
+texture_normal = ExtResource("3_mcylf")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="WrongLayer" parent="VerifyButton" instance=ExtResource("4_6k3qa")]
+
+[node name="CorrectLayer" parent="VerifyButton" instance=ExtResource("5_mj4nt")]
+
+[node name="QuitCurrent" type="TextureButton" parent="."]
+offset_left = 518.0
+offset_right = 649.0
+offset_bottom = 124.0
+texture_normal = ExtResource("6_fpipm")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="WordToSpell" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 58.0
+offset_top = 302.0
+offset_right = 582.0
+offset_bottom = 442.0
+theme_override_fonts/font = ExtResource("3_tvee1")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxTexture_guhlg")
+text = "CAT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"AudioCues"
+
+[connection signal="pressed" from="VerifyButton" to="." method="_on_verify_button_pressed" flags=18]
+[connection signal="pressed" from="QuitCurrent" to="." method="_on_quit_current_pressed" flags=18]

@@ -1,0 +1,160 @@
+[gd_scene load_steps=15 format=3 uid="uid://bch2mneo7hxj0"]
+
+[ext_resource type="Script" path="res://QuestLayer.gd" id="1_0t24y"]
+[ext_resource type="Texture2D" uid="uid://cg136pga5ihu6" path="res://Assets/coin1.png" id="2_tiih5"]
+[ext_resource type="Texture2D" uid="uid://bgsq7tu132kaf" path="res://Assets/coin2.png" id="3_l0do4"]
+[ext_resource type="Texture2D" uid="uid://dsyquptnjy4a5" path="res://Assets/coin3.png" id="4_ifge7"]
+[ext_resource type="Texture2D" uid="uid://bu3yb7djt5cvf" path="res://Assets/coin4.png" id="5_2llum"]
+[ext_resource type="Texture2D" uid="uid://b5jgom6r6wqab" path="res://Assets/coin5.png" id="6_mpi6l"]
+[ext_resource type="Texture2D" uid="uid://c0jq2i4sobmrr" path="res://Assets/coin6.png" id="7_mn681"]
+[ext_resource type="Texture2D" uid="uid://bwv2di1l7xot3" path="res://Assets/coin7.png" id="8_wbvj3"]
+[ext_resource type="FontFile" uid="uid://d4kj5gy3i1div" path="res://jabjai_heavy.TTF" id="9_xbmq1"]
+
+[sub_resource type="Animation" id="Animation_6l206"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1152)]
+}
+
+[sub_resource type="Animation" id="Animation_uhdl7"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1152), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ghpw"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1153)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0dvl"]
+_data = {
+"RESET": SubResource("Animation_6l206"),
+"transIn": SubResource("Animation_uhdl7"),
+"transOut": SubResource("Animation_5ghpw")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1ao4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tiih5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l0do4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ifge7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2llum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mpi6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mn681")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wbvj3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="QuestLayer" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -1152)
+transform = Transform2D(1, 0, 0, 1, 0, -1152)
+script = ExtResource("1_0t24y")
+metadata/_edit_horizontal_guides_ = []
+
+[node name="QuestAnim" type="AnimationPlayer" parent="."]
+speed_scale = 5.0
+libraries = {
+"": SubResource("AnimationLibrary_v0dvl")
+}
+
+[node name="PanelQuest" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 85.0
+offset_right = 622.0
+offset_bottom = 861.0
+
+[node name="CloseQuest" type="Button" parent="."]
+offset_left = 484.0
+offset_top = 101.0
+offset_right = 608.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 30
+text = "Close"
+
+[node name="Claim" type="Button" parent="."]
+offset_left = 180.0
+offset_top = 719.0
+offset_right = 477.0
+offset_bottom = 796.0
+theme_override_font_sizes/font_size = 50
+text = "Claim"
+
+[node name="QuestLabel" type="Label" parent="."]
+offset_left = 152.0
+offset_top = 478.0
+offset_right = 524.0
+offset_bottom = 622.0
+theme_override_font_sizes/font_size = 50
+text = "Spell One Word
+  Get 20 Coins!"
+
+[node name="Coins" type="AnimatedSprite2D" parent="."]
+position = Vector2(336.125, 339)
+scale = Vector2(0.225774, 0.217747)
+sprite_frames = SubResource("SpriteFrames_1ao4n")
+
+[node name="PanelLabel" type="Label" parent="."]
+offset_left = 204.0
+offset_top = 89.0
+offset_right = 436.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("9_xbmq1")
+theme_override_font_sizes/font_size = 50
+text = "Quest"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="QuestAnim" to="." method="_on_quest_anim_animation_finished"]
+[connection signal="pressed" from="CloseQuest" to="." method="_on_close_menu_pressed" flags=18]
+[connection signal="pressed" from="CloseQuest" to="." method="_on_close_shop_pressed" flags=18]
+[connection signal="pressed" from="CloseQuest" to="." method="_on_close_quest_pressed"]
+[connection signal="pressed" from="CloseQuest" to="." method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="Claim" to="." method="_on_reset_game_pressed" flags=18]
+[connection signal="pressed" from="Claim" to="." method="_on_claim_pressed"]

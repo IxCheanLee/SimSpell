@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://chcniayk478pi"]
+
+[ext_resource type="AudioStream" uid="uid://0skt3uar4grq" path="res://AudioAssets/BgMusic.mp3" id="1_ut85w"]
+
+[node name="bgMoosic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_ut85w")
+autoplay = true
+bus = &"BGMusicBus"

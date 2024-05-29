@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctxbw2u0oenpp"]
+
+[ext_resource type="Script" path="res://BlankScene.gd" id="1_qxrrr"]
+[ext_resource type="Texture2D" uid="uid://dph1j4x8d3btg" path="res://Assets/defaultBG.png" id="2_d0r7j"]
+[ext_resource type="FontFile" uid="uid://d4kj5gy3i1div" path="res://jabjai_heavy.TTF" id="3_dvm11"]
+[ext_resource type="PackedScene" uid="uid://dnbc2oo55mja7" path="res://wrong_layer.tscn" id="3_gb2om"]
+[ext_resource type="Texture2D" uid="uid://cdn01jp3v0jjl" path="res://Assets/ConfirmButton.png" id="3_l3mbu"]
+[ext_resource type="Texture2D" uid="uid://trd0vfhufn66" path="res://Assets/MatigasNaKahoy.png" id="3_yn560"]
+[ext_resource type="PackedScene" uid="uid://bsi3ur7xehvdn" path="res://GameDataaa/correct_layer.tscn" id="4_c37m2"]
+[ext_resource type="Texture2D" uid="uid://cnhtahdj3feu2" path="res://Assets/ReturnButton.png" id="6_8vjm3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qkkff"]
+texture = ExtResource("3_yn560")
+region_rect = Rect2(-10.9185, 579.592, 1765.84, 387.345)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8dkuf"]
+texture = ExtResource("3_yn560")
+region_rect = Rect2(0.47403, 579.592, 1750.65, 391.143)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qxrrr")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(324, 577)
+scale = Vector2(0.52, 0.66)
+texture = ExtResource("2_d0r7j")
+
+[node name="UserInput" type="LineEdit" parent="."]
+unique_name_in_owner = true
+offset_left = 60.0
+offset_top = 524.0
+offset_right = 584.0
+offset_bottom = 638.0
+theme_override_fonts/font = ExtResource("3_dvm11")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_qkkff")
+alignment = 1
+
+[node name="BlankLetters" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 64.0
+offset_top = 325.0
+offset_right = 585.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("3_dvm11")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_8dkuf")
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VerifyButton" type="TextureButton" parent="."]
+offset_left = 152.0
+offset_top = 746.0
+offset_right = 504.0
+offset_bottom = 1045.0
+texture_normal = ExtResource("3_l3mbu")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="WrongLayer" parent="VerifyButton" instance=ExtResource("3_gb2om")]
+
+[node name="CorrectLayer" parent="VerifyButton" instance=ExtResource("4_c37m2")]
+
+[node name="QuitCurrent" type="TextureButton" parent="."]
+offset_left = 520.0
+offset_right = 648.0
+offset_bottom = 125.0
+texture_normal = ExtResource("6_8vjm3")
+ignore_texture_size = true
+stretch_mode = 6
+
+[connection signal="pressed" from="VerifyButton" to="." method="_on_verify_button_pressed" flags=18]
+[connection signal="pressed" from="QuitCurrent" to="." method="_on_quit_current_pressed" flags=18]

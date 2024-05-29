@@ -1,0 +1,358 @@
+[gd_scene load_steps=43 format=3 uid="uid://6ksyspyntwv5"]
+
+[ext_resource type="Script" path="res://PlayerMenuScene.gd" id="1_o1dly"]
+[ext_resource type="Texture2D" uid="uid://dph1j4x8d3btg" path="res://Assets/defaultBG.png" id="2_r8cja"]
+[ext_resource type="Texture2D" uid="uid://deulixaioae7a" path="res://Assets/PlayButton.png" id="3_isg61"]
+[ext_resource type="Texture2D" uid="uid://byqdb7ud0in1x" path="res://Assets/kulay.png" id="4_37jut"]
+[ext_resource type="Texture2D" uid="uid://0xnxum34ox57" path="res://Assets/cat (1).png" id="4_pc02l"]
+[ext_resource type="Texture2D" uid="uid://bulb2v457l4a8" path="res://Assets/cat (2).png" id="5_1ly2t"]
+[ext_resource type="Texture2D" uid="uid://c48yf8kmhpr10" path="res://Assets/Bull (1).png" id="5_5fvc6"]
+[ext_resource type="PackedScene" uid="uid://cspkytw6qpdgv" path="res://shop_layer.tscn" id="5_b8tyy"]
+[ext_resource type="Texture2D" uid="uid://deu13jxfykls6" path="res://Assets/Axolotl (1).png" id="5_slwd2"]
+[ext_resource type="Texture2D" uid="uid://dw2yo6vp36wl4" path="res://Assets/2560x1440-lime-web-green-solid-color-background.jpg" id="5_tyblw"]
+[ext_resource type="Texture2D" uid="uid://cs3qabftdrg2n" path="res://Assets/Bull (2).png" id="6_62w8n"]
+[ext_resource type="PackedScene" uid="uid://ckxfmfuq66y31" path="res://inventory_layer.tscn" id="6_a8bah"]
+[ext_resource type="Texture2D" uid="uid://codmth1hxcw2q" path="res://Assets/cat (3).png" id="6_fpihg"]
+[ext_resource type="Texture2D" uid="uid://ds4unoe6ni2u6" path="res://Assets/Axolotl (2).png" id="6_l5077"]
+[ext_resource type="Texture2D" uid="uid://d1rf1336osly6" path="res://Assets/cat (4).png" id="7_07vg1"]
+[ext_resource type="PackedScene" uid="uid://cm8liyduh3vls" path="res://menu_layer.tscn" id="7_35h18"]
+[ext_resource type="Texture2D" uid="uid://boxvc7v3yl43m" path="res://Assets/Axolotl (3).png" id="7_g70ht"]
+[ext_resource type="Texture2D" uid="uid://d4jo168nypwv" path="res://Assets/Bull (3).png" id="7_i6mfj"]
+[ext_resource type="Texture2D" uid="uid://cpakvfteojbia" path="res://Assets/Bull (4).png" id="8_u32wx"]
+[ext_resource type="Texture2D" uid="uid://d1queo7h83km4" path="res://Assets/Axolotl (4).png" id="8_y3808"]
+[ext_resource type="Texture2D" uid="uid://dowy57osucyux" path="res://Assets/Panda (1).png" id="9_nf1bq"]
+[ext_resource type="Texture2D" uid="uid://ch73upbe4boy8" path="res://Assets/BeardedDragon (1).png" id="9_y36po"]
+[ext_resource type="Texture2D" uid="uid://dn165uli1forn" path="res://Assets/BeardedDragon (2).png" id="10_rawhi"]
+[ext_resource type="Texture2D" uid="uid://dp4yyy47gmmht" path="res://Assets/Panda (2).png" id="10_yy1xm"]
+[ext_resource type="Texture2D" uid="uid://b44ailvs8kp5g" path="res://Assets/Panda (3).png" id="11_3dlen"]
+[ext_resource type="Texture2D" uid="uid://b3o68q5k36atv" path="res://Assets/BeardedDragon (3).png" id="11_alyxn"]
+[ext_resource type="Texture2D" uid="uid://dsnwn44evs5x2" path="res://Assets/Panda (4).png" id="12_7qwsx"]
+[ext_resource type="Texture2D" uid="uid://rcjg4ststisi" path="res://Assets/BeardedDragon (4).png" id="12_jcqql"]
+[ext_resource type="Texture2D" uid="uid://fxotq2j3maot" path="res://Assets/Tiger (1).png" id="13_ahlg1"]
+[ext_resource type="Texture2D" uid="uid://cgcfy4moj4xer" path="res://Assets/ShopButton.png" id="13_wf1o6"]
+[ext_resource type="Texture2D" uid="uid://oqfdp874pto7" path="res://Assets/Tiger (2).png" id="14_5om4y"]
+[ext_resource type="Texture2D" uid="uid://ba0s8jufjlk04" path="res://Assets/NewEXPBar.png" id="15_2b727"]
+[ext_resource type="Texture2D" uid="uid://c1rh01nh4cl0n" path="res://Assets/InventoryButton.png" id="15_cbq7i"]
+[ext_resource type="Texture2D" uid="uid://ytrd7h2pfd5d" path="res://Assets/Tiger (3).png" id="15_jkv80"]
+[ext_resource type="Texture2D" uid="uid://crku2eqs13owq" path="res://Assets/Tiger (4).png" id="16_3nm37"]
+[ext_resource type="Texture2D" uid="uid://ebpsrficetaf" path="res://Assets/MenuButton.png" id="17_axjoc"]
+[ext_resource type="Texture2D" uid="uid://c4xe7o62hiqe3" path="res://Assets/AchievementButton.png" id="20_imkq5"]
+[ext_resource type="Texture2D" uid="uid://trd0vfhufn66" path="res://Assets/MatigasNaKahoy.png" id="32_dg4i8"]
+[ext_resource type="FontFile" uid="uid://d4kj5gy3i1div" path="res://jabjai_heavy.TTF" id="32_ou08v"]
+[ext_resource type="PackedScene" uid="uid://bch2mneo7hxj0" path="res://quest_layer.tscn" id="45_u5dhy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2kga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_slwd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l5077")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g70ht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y3808")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g70ht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l5077")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_slwd2")
+}],
+"loop": true,
+"name": &"Axolotl",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_y36po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rawhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_alyxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jcqql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_alyxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rawhi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y36po")
+}],
+"loop": true,
+"name": &"BeardedDragon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_62w8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i6mfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u32wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5fvc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_u32wx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_i6mfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_62w8n")
+}],
+"loop": true,
+"name": &"Bull",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_nf1bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yy1xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3dlen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7qwsx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3dlen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yy1xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nf1bq")
+}],
+"loop": true,
+"name": &"Panda",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ahlg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5om4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jkv80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3nm37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jkv80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5om4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ahlg1")
+}],
+"loop": true,
+"name": &"Tiger",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_pc02l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1ly2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fpihg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_07vg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fpihg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1ly2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pc02l")
+}],
+"loop": true,
+"name": &"defaultAvatar",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pn5or"]
+texture = ExtResource("32_dg4i8")
+region_rect = Rect2(-3.32349, 579.592, 1750.65, 383.547)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_o1dly")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(324, 577)
+scale = Vector2(0.52, 0.66)
+texture = ExtResource("2_r8cja")
+
+[node name="BtnStartSpelling" type="TextureButton" parent="."]
+offset_left = 337.0
+offset_top = 914.0
+offset_right = 500.0
+offset_bottom = 1062.0
+texture_normal = ExtResource("3_isg61")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="PlayerExpBar" type="TextureProgressBar" parent="."]
+offset_left = 198.0
+offset_top = 728.0
+offset_right = 497.0
+offset_bottom = 776.0
+nine_patch_stretch = true
+texture_under = ExtResource("4_37jut")
+texture_progress = ExtResource("5_tyblw")
+
+[node name="Avatar" type="AnimatedSprite2D" parent="."]
+position = Vector2(322, 467)
+scale = Vector2(0.85, 0.822)
+sprite_frames = SubResource("SpriteFrames_j2kga")
+animation = &"defaultAvatar"
+
+[node name="ShopButton" type="TextureButton" parent="."]
+offset_left = 15.0
+offset_top = 16.0
+offset_right = 180.0
+offset_bottom = 153.0
+texture_normal = ExtResource("13_wf1o6")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="ShopLayer" parent="ShopButton" instance=ExtResource("5_b8tyy")]
+
+[node name="InventoryButton" type="TextureButton" parent="."]
+offset_left = 240.0
+offset_top = 13.0
+offset_right = 410.0
+offset_bottom = 151.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("15_cbq7i")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="InventLayer" parent="InventoryButton" instance=ExtResource("6_a8bah")]
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 466.0
+offset_top = 17.0
+offset_right = 632.0
+offset_bottom = 152.0
+grow_vertical = 2
+texture_normal = ExtResource("17_axjoc")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="MenuLayer" parent="SettingsButton" instance=ExtResource("7_35h18")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 40.0
+offset_top = 635.0
+offset_right = 634.0
+offset_bottom = 868.0
+texture = ExtResource("15_2b727")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="QuestButton" type="TextureButton" parent="."]
+offset_left = 145.0
+offset_top = 914.0
+offset_right = 308.0
+offset_bottom = 1062.0
+texture_normal = ExtResource("20_imkq5")
+ignore_texture_size = true
+stretch_mode = 6
+
+[node name="QuestLayer" parent="QuestButton" instance=ExtResource("45_u5dhy")]
+
+[node name="ShirtSkin" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 156.0
+offset_top = 386.0
+offset_right = 486.0
+offset_bottom = 713.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HatSkin" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 117.0
+offset_top = 152.0
+offset_right = 523.0
+offset_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_left = 258.0
+offset_top = 842.0
+offset_right = 388.0
+offset_bottom = 914.0
+theme_override_colors/font_color = Color(0.243137, 0.109804, 0, 1)
+theme_override_fonts/font = ExtResource("32_ou08v")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_pn5or")
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 259.0
+offset_top = 841.0
+offset_right = 389.0
+offset_bottom = 915.0
+theme_override_fonts/font = ExtResource("32_ou08v")
+theme_override_font_sizes/font_size = 60
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[connection signal="pressed" from="BtnStartSpelling" to="." method="_on_btn_start_spelling_pressed"]
+[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="pressed" from="InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="QuestButton" to="." method="_on_quest_button_pressed"]

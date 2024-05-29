@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=3 uid="uid://duu74hqlp4gkj"]
+
+[ext_resource type="Script" path="res://LVLupLayer.gd" id="1_xtm5o"]
+[ext_resource type="Texture2D" uid="uid://q2kcqnmnf01o" path="res://Assets/lvlUP (1).png" id="2_vcasc"]
+[ext_resource type="Texture2D" uid="uid://dooihgh5knkd2" path="res://Assets/lvlUP (2).png" id="3_qffsk"]
+[ext_resource type="Texture2D" uid="uid://c72kmxactx7va" path="res://Assets/lvlUP (3).png" id="4_te88w"]
+[ext_resource type="Texture2D" uid="uid://byhcpcayo6how" path="res://Assets/lvlUP (4).png" id="5_abup6"]
+[ext_resource type="AudioStream" uid="uid://bfkq4rljrn7sa" path="res://AudioAssets/LevelUpSound.mp3" id="6_vgmy0"]
+
+[sub_resource type="Animation" id="Animation_6l206"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1152)]
+}
+
+[sub_resource type="Animation" id="Animation_uhdl7"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1152), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ghpw"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1153)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0dvl"]
+_data = {
+"RESET": SubResource("Animation_6l206"),
+"transIn": SubResource("Animation_uhdl7"),
+"transOut": SubResource("Animation_5ghpw")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwlb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vcasc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qffsk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_te88w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_abup6")
+}],
+"loop": true,
+"name": &"lvlUPlowgo",
+"speed": 5.0
+}]
+
+[node name="LVLupLayer" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -1152)
+transform = Transform2D(1, 0, 0, 1, 0, -1152)
+script = ExtResource("1_xtm5o")
+
+[node name="LVLupAnim" type="AnimationPlayer" parent="."]
+speed_scale = 5.0
+libraries = {
+"": SubResource("AnimationLibrary_v0dvl")
+}
+
+[node name="PanelLVLup" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 85.0
+offset_right = 622.0
+offset_bottom = 861.0
+
+[node name="CloseLVLup" type="Button" parent="."]
+offset_left = 144.0
+offset_top = 698.0
+offset_right = 508.0
+offset_bottom = 788.0
+theme_override_font_sizes/font_size = 30
+text = "Close"
+
+[node name="LvlLowgo" type="AnimatedSprite2D" parent="."]
+position = Vector2(332, 284)
+scale = Vector2(0.365826, 0.35787)
+sprite_frames = SubResource("SpriteFrames_rwlb0")
+animation = &"lvlUPlowgo"
+frame_progress = 0.279802
+
+[node name="Lebel" type="Label" parent="."]
+offset_left = 114.0
+offset_top = 513.0
+offset_right = 546.0
+offset_bottom = 585.0
+theme_override_font_sizes/font_size = 40
+text = "You are now Level test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LvlUpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_vgmy0")
+volume_db = 20.0
+
+[connection signal="pressed" from="CloseLVLup" to="." method="_on_button_pressed" flags=18]
+[connection signal="pressed" from="CloseLVLup" to="." method="_on_close_shop_pressed" flags=18]
+[connection signal="pressed" from="CloseLVLup" to="." method="_on_close_correct_pressed" flags=18]
+[connection signal="pressed" from="CloseLVLup" to="." method="_on_close_menu_pressed" flags=18]

@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnbc2oo55mja7"]
+
+[ext_resource type="Script" path="res://wrong_layer.gd" id="1_mdmre"]
+[ext_resource type="AudioStream" uid="uid://cmukkwjvyk5ui" path="res://AudioAssets/WrongAnswer.mp3" id="2_3l3lr"]
+
+[sub_resource type="Animation" id="Animation_6l206"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1152)]
+}
+
+[sub_resource type="Animation" id="Animation_uhdl7"]
+resource_name = "transIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -1152), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ghpw"]
+resource_name = "transOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 1153)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0dvl"]
+_data = {
+"RESET": SubResource("Animation_6l206"),
+"transIn": SubResource("Animation_uhdl7"),
+"transOut": SubResource("Animation_5ghpw")
+}
+
+[node name="WrongLayer" type="CanvasLayer"]
+process_mode = 3
+offset = Vector2(0, -1152)
+transform = Transform2D(1, 0, 0, 1, 0, -1152)
+script = ExtResource("1_mdmre")
+
+[node name="WrongAnim" type="AnimationPlayer" parent="."]
+speed_scale = 5.0
+libraries = {
+"": SubResource("AnimationLibrary_v0dvl")
+}
+
+[node name="PanelWrong" type="Panel" parent="."]
+offset_left = 32.0
+offset_top = 85.0
+offset_right = 622.0
+offset_bottom = 861.0
+
+[node name="CloseWrong" type="Button" parent="."]
+offset_left = 260.0
+offset_top = 591.0
+offset_right = 384.0
+offset_bottom = 659.0
+theme_override_font_sizes/font_size = 30
+text = "Retry
+"
+
+[node name="WrongLabel" type="Label" parent="."]
+offset_left = 132.0
+offset_top = 372.0
+offset_right = 509.0
+offset_bottom = 579.0
+pivot_offset = Vector2(722, -88)
+theme_override_font_sizes/font_size = 50
+text = "Wrong
+"
+horizontal_alignment = 1
+
+[node name="WrongSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3l3lr")
+volume_db = 15.0
+
+[connection signal="animation_started" from="WrongAnim" to="." method="_on_wrong_anim_animation_started"]
+[connection signal="pressed" from="CloseWrong" to="." method="_on_close_correct_pressed" flags=18]
+[connection signal="pressed" from="CloseWrong" to="." method="_on_close_wrong_pressed"]
+[connection signal="pressed" from="CloseWrong" to="." method="_on_close_menu_pressed" flags=18]
+[connection signal="pressed" from="CloseWrong" to="." method="_on_close_shop_pressed" flags=18]
+[connection signal="pressed" from="CloseWrong" to="." method="_on_button_pressed" flags=18]
